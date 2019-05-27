@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xjtu.mapper.AccountMapper">
+    <!--根据账户id和密码查询账户信息-->
+    <select id="selByIdPwd" resultType="account" parameterType="account">
+        select * from account where aid=#{aid} and apwd=#{apwd}
+    </select>
+    <!--根据账户id和名字账户信息-->
+    <select id="selByIdName" resultType="account" parameterType="account">
+        select * from account where aid=#{aid} and aname=#{aname}
+    </select>
+    <!--转账-->
+    <update id="upAccount" parameterType="account">
+        update account set money=money+#{money} where aid=#{aid}
+    </update>
+
+</mapper>
